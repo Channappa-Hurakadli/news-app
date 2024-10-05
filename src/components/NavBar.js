@@ -3,8 +3,18 @@ import News from './News'
 import { Link } from 'react-router-dom';
 export default class NavBar extends Component {
  
+  constructor(){
+    super();
+    this.state = {
+      categoryHead:'Categories'
+    }
+    this.changeContent = this.changeContent.bind(this);
+  }
+  
 
-
+  changeContent=(evt)=>{
+    this.setState({categoryHead:evt.target.text})
+  }
   render() {
     return (
       <div>
@@ -27,27 +37,16 @@ export default class NavBar extends Component {
                     </li>
                     <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle text-light " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categories
+                        {this.state.categoryHead}
                     </a>
                     <ul className="dropdown-menu bg-dark">
-                        <li><Link className="dropdown-item text-light" to="/sports">Sports</Link></li>
-                        <li><Link className="dropdown-item text-light" to="/health">Health</Link></li>
-                        <li><Link className="dropdown-item text-light" to="/general">General</Link></li>
-                        <li><Link className="dropdown-item text-light" to="/science">Science</Link></li>
-                        <li><Link className="dropdown-item text-light" to="/technology">Technology</Link></li>
-                        <li><Link className="dropdown-item text-light" to="/entertainment">Entertainment</Link></li>
-                        <li><Link className="dropdown-item text-light" to="/business">Business</Link></li>
-                    </ul>
-                    </li>
-                    <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Source
-                    </a>
-                    <ul className="dropdown-menu bg-dark">
-                        <li><a className="dropdown-item text-light" href="#">BBC News</a></li>
-                        <li><a className="dropdown-item text-light" href="#">CNN</a></li>
-                        <li><a className="dropdown-item text-light" href="#">Fox News</a></li>
-                        <li><a className="dropdown-item text-light" href="#">Google News</a></li>
+                        <li><Link className="dropdown-item text-light" onClick={this.changeContent} to="/sports">Sports</Link></li>
+                        <li><Link className="dropdown-item text-light" onClick={this.changeContent} to="/health">Health</Link></li>
+                        <li><Link className="dropdown-item text-light" onClick={this.changeContent} to="/general">General</Link></li>
+                        <li><Link className="dropdown-item text-light" onClick={this.changeContent} to="/science">Science</Link></li>
+                        <li><Link className="dropdown-item text-light" onClick={this.changeContent} to="/technology">Technology</Link></li>
+                        <li><Link className="dropdown-item text-light" onClick={this.changeContent} to="/entertainment">Entertainment</Link></li>
+                        <li><Link className="dropdown-item text-light" onClick={this.changeContent} to="/business">Business</Link></li>
                     </ul>
                     </li>
                 </ul>

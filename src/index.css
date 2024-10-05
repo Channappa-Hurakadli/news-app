@@ -25,3 +25,10 @@ code {
 .dropdown-item:hover {
   background-color: #343333; /* light grey color */
 }
+
+.name,.date{
+  color:red;
+}
+.card span{
+  left: 90%!important;
+}
